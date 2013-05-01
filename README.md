@@ -41,7 +41,7 @@ cd my_new_project
 
 This will create a new directory, called `my_new_project`, in both your Pebble Box (under `/vagrant/my_new_folder`) and your machine (under `pebble-box/my_new_folder`).
 
-The two folders are synced, so any changes you make to files in the folder on your machine will automatically be visible in the folder on your Pebble Box, and vice versa. That means you can write code on your machine using whatever dev tools you like. When you're ready to build, just switch back to the terminal with your Vagrant session and type:
+The two folders are synced, so any changes you make in the folder on your machine will automatically be visible in the folder on your Pebble Box, and vice versa. That means you can write code on your machine using whatever dev tools you like. When you're ready to build, just switch back to the terminal with your Vagrant session and type:
 
 ```
 ./waf build
@@ -52,7 +52,7 @@ This builds your project and serves it up through a simple webserver running on 
 
 ## Contributing
 
-Tweaking of your Pebble Box will most likely be done through the Puppet script found in `pebble-box/manifests/init.pp`. If you've got something you think would be helpful for others, be sure to send a pull request :)
+Tweaking of your Pebble Box will most likely be done through the Puppet script found in `manifests/init.pp`. If you've got something you think would be helpful for others, be sure to send a pull request :)
 
 ## License
 Copyright (C) 2013 Rahim Sonawalla ([rsonawalla@gmail.com](mailto:rsonawalla@gmail.com) / [@rahims](http://twitter.com/rahims)).
