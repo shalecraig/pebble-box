@@ -22,9 +22,8 @@ If you're new to Vagrant, you'll find the (short) [Vagrant Getting Started Guide
 Creating a Pebble Box is as easy as cloning this repo and running `vagrant up`. In a new terminal window, type the following:
 
 ```
-mkdir pebble-box
-cd pebble-box
 git clone https://github.com/rahims/pebble-box.git
+cd pebble-box
 vagrant up
 ```
 
