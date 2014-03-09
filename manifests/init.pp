@@ -33,19 +33,19 @@ package { "python-pip":
 }
 
 exec { "download-sdk":
-    command => "wget https://dl.dropboxusercontent.com/u/2135156/pebble-sdk-release-001.zip",
+    command => "https://developer.getpebble.com/2/download/PebbleSDK-2.0.1.tar.gz",
     timeout => 0,
+    path => "/bin",
     cwd => "/home/vagrant",
-    path => "/usr/bin",
-    creates => "/home/vagrant/pebble-sdk-release-001.zip",
+    creates => "/home/vagrant/PebbleSDK-2.0.1.tar.gz",
     require => Package["python-pip"]
 }
 
-exec { "unzip-sdk":
-    command => "unzip pebble-sdk-release-001.zip",
+exec { "untar-sdk":
+    command => "tar -xjf PebbleSDK-2.0.1.tar",
     path => "/usr/bin",
     cwd => "/home/vagrant",
-    creates => "/home/vagrant/pebble-sdk-release-001",
+    creates => "/home/vagrant/PebbleSDK-2.0.1",
     require => Exec["download-sdk"]
 }
 
@@ -55,7 +55,7 @@ exec { "download-toolchain":
     cwd => "/home/vagrant",
     path => "/usr/bin",
     creates => "/home/vagrant/arm-cs-tools-ubuntu-universal.tar.gz",
-    require => Exec["unzip-sdk"]
+    require => Exec["untar-sdk"]
 }
 
 exec { "untar-toolchain":
@@ -67,7 +67,7 @@ exec { "untar-toolchain":
 }
 
 $pebble_env = "export PATH=~/arm-cs-tools/bin:\$PATH
-               export PEBBLEDIR=/home/vagrant/pebble-sdk-release-001
+               export PEBBLEDIR=/home/vagrant/PebbleSDK-2.0.1
                cd /vagrant"
 
 file { "/etc/profile.d/set-pebble-env.sh":
