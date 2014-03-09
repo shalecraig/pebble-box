@@ -50,16 +50,16 @@ exec { "unzip-sdk":
 }
 
 exec { "download-toolchain":
-    command => "wget http://developer.getpebble.com/files/sdk-release-001/arm-cs-tools-ubuntu-12.04-2012-12-22.tar.bz2",
+    command => "wget http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk/arm-cs-tools-ubuntu-universal.tar.gz",
     timeout => 0,
     cwd => "/home/vagrant",
     path => "/usr/bin",
-    creates => "/home/vagrant/arm-cs-tools-ubuntu-12.04-2012-12-22.tar.bz2",
+    creates => "/home/vagrant/arm-cs-tools-ubuntu-universal.tar.gz",
     require => Exec["unzip-sdk"]
 }
 
 exec { "untar-toolchain":
-    command => "tar -xjf arm-cs-tools-ubuntu-12.04-2012-12-22.tar.bz2",
+    command => "tar -xjf arm-cs-tools-ubuntu-universal.tar.gz",
     path => "/bin",
     cwd => "/home/vagrant",
     creates => "/home/vagrant/arm-cs-tools",
