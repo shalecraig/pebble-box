@@ -33,7 +33,7 @@ package { "python-pip":
 }
 
 exec { "download-sdk":
-    command => "https://developer.getpebble.com/2/download/PebbleSDK-2.0.1.tar.gz",
+    command => "wget https://developer.getpebble.com/2/download/PebbleSDK-2.0.1.tar.gz",
     timeout => 0,
     path => "/bin",
     cwd => "/home/vagrant",
